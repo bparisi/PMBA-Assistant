@@ -1,1 +1,0 @@
-m_textbox_label = "Physician Signature";

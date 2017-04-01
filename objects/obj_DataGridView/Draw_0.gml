@@ -49,6 +49,7 @@ if (!m_empty) {
 	}
 	if (m_resultgrid_size == 0) {
 		draw_set_font(font_DGV_28);
+		draw_set_halign(fa_left);
 		draw_text(x + 80, y + 20, "No records match that query");
 	}
 }

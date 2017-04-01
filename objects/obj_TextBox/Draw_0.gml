@@ -7,10 +7,13 @@ else draw_sprite(sprite_index,1,x,y) //draw active sprite (frame 1)
 draw_set_font(font_TextInput); //set the font
 draw_set_halign(m_textbox_fa); //set text alignment
 draw_set_color(c_white); //set text color
+var yoffset = (y - 6 + sprite_height/2);
 if (m_textbox_fa == fa_center) //draw text
-	draw_text( x + sprite_width/2, y - 6 + sprite_height/2, string(m_textbox_text));
+	draw_text( x + sprite_width/2, yoffset, string(m_textbox_text));
+else if (m_textbox_fa == fa_right)
+	draw_text( x + sprite_width - 20, yoffset, string(m_textbox_text));
 else
-	draw_text( x + 20, y - 6 + sprite_height/2, string(m_textbox_text));
+	draw_text( x + 20, yoffset, string(m_textbox_text));
 
 //draw the label
 draw_set_font(font_TextboxLabel);

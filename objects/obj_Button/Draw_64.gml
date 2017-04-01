@@ -9,4 +9,4 @@ draw_text((x - sprite_width/2) + m_button_x_labeloffset, (y - sprite_height/2) +
 draw_set_font(-1);
 draw_set_color(c_white);
 //draw_text(800, 110, "data grid row ct: " + string(controller.m_ds_rowcount));
-draw_text(800, 110, "keyboard_string length: " + string(string_length(keyboard_string)));
+draw_text(100, 810, "keyboard_string length: " + string(string_length(keyboard_string)));

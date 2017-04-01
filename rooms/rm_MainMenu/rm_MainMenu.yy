@@ -4,7 +4,7 @@
     "mvc": "1.0",
     "name": "rm_MainMenu",
     "IsDnD": false,
-    "creationCodeFile": "",
+    "creationCodeFile": "RoomCreationCode.gml",
     "inheritCode": false,
     "inheritCreationOrder": false,
     "inheritLayers": false,
@@ -21,7 +21,7 @@
             "mvc": "1.0",
             "depth": 0,
             "grid_x": 32,
-            "grid_y": 32,
+            "grid_y": 20,
             "hierarchyFrozen": false,
             "hierarchyVisible": true,
             "inheritLayerDepth": false,
@@ -70,8 +70,8 @@
                     "m_originalParentID": "00000000-0000-0000-0000-000000000000",
                     "m_serialiseFrozen": false,
                     "name": "inst_Button_NewCase",
-                    "x": 800,
-                    "y": 544,
+                    "x": 768,
+                    "y": 560,
                     "IsDnD": false,
                     "colour": {
                         "Value": 4294967295
@@ -94,8 +94,8 @@
                     "m_originalParentID": "00000000-0000-0000-0000-000000000000",
                     "m_serialiseFrozen": false,
                     "name": "inst_3185D7F0",
-                    "x": 800,
-                    "y": 352,
+                    "x": 768,
+                    "y": 340,
                     "IsDnD": false,
                     "colour": {
                         "Value": 4294967295

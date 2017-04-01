@@ -1,0 +1,14 @@
+
+1) make it so when you click on a cpt code you are taken back to its details
+
+2) add new state for adding cases that have already been settled
+
+3) add "add additional hic form details" link
+
+4) add ability to go back in and settle cases
+
+5) fix issues with visible=false items still being clickable
+
+6) add explanatory GUI text
+
+

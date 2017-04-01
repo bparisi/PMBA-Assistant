@@ -1,7 +1,7 @@
 /// @description
 
 enum states {
-	MainMenu, NewCase, Search, Contact, PatientDetails
+	MainMenu, NewRecord, CPTEntry, Search, Contact
 }
 
 current_state = states.MainMenu;
@@ -22,9 +22,9 @@ enum dgc { //data_grid_column
 	date_of_service,
 	//---SUMMARY^
 	date_of_loss, 
-	bill_address, bill_phone,
 	modifiers, units,
 	place_code, prov_id,
+	bill_address, bill_phone,
 	fedTIN, phys_sig,
 	na_case_id, na_bill_id
 }
@@ -47,6 +47,3 @@ enum input_mask { //a number supplied to a function so that it knows how to veri
 m_ds_datagrid = ds_grid_create(2500, COLUMN_COUNT);
 m_ds_rowcount = 0;
 m_grid_changed = false;
-m_new_case_ids[5] = -404; 
-m_new_case_count = 0;
-m_patient_detail = undefined;

@@ -36,3 +36,4 @@ if (num_results > 0) {
 	}
 }
 
+ds_list_destroy(matching_rows);

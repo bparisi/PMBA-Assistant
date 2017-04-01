@@ -21,7 +21,7 @@
             "mvc": "1.0",
             "depth": 0,
             "grid_x": 32,
-            "grid_y": 32,
+            "grid_y": 20,
             "hierarchyFrozen": false,
             "hierarchyVisible": true,
             "inheritLayerDepth": false,
@@ -46,7 +46,7 @@
                     "m_originalParentID": "00000000-0000-0000-0000-000000000000",
                     "m_serialiseFrozen": false,
                     "name": "inst_datagridview",
-                    "x": 108,
+                    "x": 96,
                     "y": 360,
                     "IsDnD": false,
                     "colour": {
@@ -70,8 +70,8 @@
                     "m_originalParentID": "00000000-0000-0000-0000-000000000000",
                     "m_serialiseFrozen": false,
                     "name": "inst_51622309",
-                    "x": 147,
-                    "y": 87,
+                    "x": 160,
+                    "y": 80,
                     "IsDnD": false,
                     "colour": {
                         "Value": 4294967295
@@ -94,7 +94,7 @@
                     "m_originalParentID": "00000000-0000-0000-0000-000000000000",
                     "m_serialiseFrozen": false,
                     "name": "inst_4E5F3979",
-                    "x": 32,
+                    "x": 64,
                     "y": 160,
                     "IsDnD": false,
                     "colour": {

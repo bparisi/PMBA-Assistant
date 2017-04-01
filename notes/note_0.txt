@@ -1,5 +1,0 @@
-times textbox instance names are used explicitly:
-
-left pressed event of Button_saves
-
-room creation code to loas prior data
