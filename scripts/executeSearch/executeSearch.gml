@@ -5,10 +5,12 @@
 
 var text = argument0;
 var grid = controller.m_ds_datagrid;
+var row_ct = ds_grid_get(controller.m_ds_metadata, 0, meta.row_count);
 var matching_rows = ds_list_create();
  
 
-for (var i = 1; i < controller.m_ds_rowcount; i++) {//outer loop searchs per row
+//search logic
+for (var i = row_ct-1; i > -1; i--) {//outer loop searchs per row, back to front so recent items come up first
 	for (var j = 1; j < COLUMN_COUNT; j++) { //inner loop searches per data piece (not dataid)
 		if ( string(grid[# i, j]) == text ||
 			 string_pos(text, string(grid[# i, j])) > 0 ) { //if is the string or contains the string
@@ -19,8 +21,24 @@ for (var i = 1; i < controller.m_ds_rowcount; i++) {//outer loop searchs per row
 	}
 }
 
-var results_grid = inst_datagridview.m_ds_searchresults;
+
+//pre-display
 var num_results = ds_list_size(matching_rows);
+instance_destroy(obj_DataGridView_Row);
+
+
+//inform display
+with (obj_SearchResultsDisplay) {
+	ds_list_copy(m_results_list, matching_rows);
+	m_disp_lower = 0;
+	m_disp_upper = min(num_results, 5);
+	drawSearchResults(id);
+}
+
+ds_list_destroy(matching_rows);
+
+
+/*var results_grid = inst_datagridview.m_ds_searchresults;
 inst_datagridview.m_resultgrid_size = num_results;
 
 if (num_results > 0) {
@@ -36,4 +54,4 @@ if (num_results > 0) {
 	}
 }
 
-ds_list_destroy(matching_rows);
+ds_list_destroy(matching_rows);*/

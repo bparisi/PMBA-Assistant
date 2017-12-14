@@ -3,9 +3,9 @@
 draw_set_color(c_white);
 draw_set_halign(fa_center);
 
-if (!m_empty) {
+if not (m_empty) {
 	
-	//position the elements of each row
+	//position the elements of each row using the settings specified in the Create event
 	for (var jjj = 0; jjj < m_resultgrid_size; jjj++) { 
 		var base_y_coord = (y + 120*jjj);
 		
@@ -54,5 +54,7 @@ if (!m_empty) {
 	}
 }
 else {
-	draw_text(x, y, "There are no saved records");
+	draw_set_font(font_DGV_28);
+	draw_set_halign(fa_left);
+	draw_text(x + 80, y + 20, "There are no saved records");
 }

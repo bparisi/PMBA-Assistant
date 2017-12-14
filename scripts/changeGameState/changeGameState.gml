@@ -9,5 +9,5 @@ var program_state, roomID;
 program_state = argument0;
 roomID = argument1;
 
-controller.current_state = program_state;
+controller.game_state = program_state;
 if (roomID != undefined) room_goto(roomID);

@@ -1,0 +1,14 @@
+December 2017
+
+-- Search Display redesign
+-- Search Display scrolling
+-- Tab Support
+-- Textbox redesign
+-- Multiline Textbox
+-- CPT Code editing (new record & from search)
+-- CPT Code deletion (during new record only)
+-- Already Settled / Not Already Settled Link
+-- Input Validation
+-- Simplification of PatientDetail, cptCode and Textbox objects
+----> removal of unnecessary fluff objects
+-- several utility scripts

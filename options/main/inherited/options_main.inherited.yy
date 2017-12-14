@@ -2,4 +2,8 @@
     "option_gameguid": "8bc8975e-b393-44f8-8acf-39b2522bc4af",
     "option_lastchanged": "31 March 2017 18:45:53",
     "option_sci_usesci": true
+}←1225f6b0-ac20-43bd-a82e-be73fa0b6f4f|{
+    "targets": 29263750006690030
+}←7b2c4976-1e09-44e5-8256-c527145e03bb|{
+    "targets": 29263750006690030
 }

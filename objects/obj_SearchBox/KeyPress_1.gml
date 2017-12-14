@@ -10,7 +10,8 @@ if (m_searchbox_selected) {
 			m_searchbox_text = keyboard_string;
 	}
 	else if (key == vk_enter) {
-		if (!inst_datagridview.m_empty)
+		//var row_ct = ds_grid_get(controller.m_ds_metadata, 0, meta.row_count);
+		//if (row_ct > 0)
 			executeSearch(m_searchbox_text);
 	}
 

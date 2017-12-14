@@ -1,12 +1,20 @@
 /// @description
 
-if (controller.m_ds_rowcount > 1) {
+var row_ct = ds_grid_get(controller.m_ds_metadata, 0, meta.row_count);
+
+if (row_ct > 0) {
 	m_empty = false;
-	m_ds_searchresults = ds_grid_create(controller.m_ds_rowcount, COLUMN_COUNT);
+	
+	/*
+	//display all data at search start
+	m_ds_searchresults = ds_grid_create(row_ct, COLUMN_COUNT);
 	ds_grid_set_grid_region(m_ds_searchresults, controller.m_ds_datagrid, 
-							1, 0, controller.m_ds_rowcount-1, COLUMN_COUNT-1,
-							0, 0);
-	m_resultgrid_size = controller.m_ds_rowcount-1;
+							0, 0, row_ct-1, COLUMN_COUNT-1,	0, 0);
+	m_resultgrid_size = row_ct;
+	*/
+	
+	m_ds_searchresults = ds_grid_create(1, 1);
+	m_resultgrid_size = 0;
 	
 	//specify the positioning to be used in laying out the grid					
 	//mpositioningy holds how far (0-120) off the base_y_coord it should be drawn
@@ -33,7 +41,9 @@ if (controller.m_ds_rowcount > 1) {
 	m_positioningy[dgc.from_date] = 34;
 	m_positioningx[dgc.to_date] = 780;
 	m_positioningy[dgc.to_date] = 62;
-	m_positioningx[dgc.date_of_service] = 942;
+	m_positioningx[dgc.na_bill_id] = 942;
+	m_positioningy[dgc.na_bill_id] = 42;
+	m_positioningx[dgc.date_of_service] = 1100;
 	m_positioningy[dgc.date_of_service] = 42;
 }
 else {
