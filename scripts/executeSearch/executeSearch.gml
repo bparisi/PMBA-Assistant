@@ -25,6 +25,7 @@ for (var i = row_ct-1; i > -1; i--) {//outer loop searchs per row, back to front
 //pre-display
 var num_results = ds_list_size(matching_rows);
 instance_destroy(obj_DataGridView_Row);
+instance_destroy(obj_EditRecordBtn);
 
 
 //inform display

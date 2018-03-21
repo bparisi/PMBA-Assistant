@@ -1,5 +1,5 @@
 m_textbox_text = "";
-m_textbox_label = "Physician Signature"
+m_textbox_label = "Authorized Signature"
 m_textbox_fa = fa_left;
 m_textbox_sizeRestriction = 42;
 m_textbox_state = 3; //0 - unchanged, 1 - valid, 2 - invalid, 3 - optional unchanged
