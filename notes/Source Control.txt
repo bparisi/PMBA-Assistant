@@ -2,7 +2,7 @@ December 2017
 
 -- Search Display redesign
 -- Search Display scrolling
--- Tab Support
+-- You can use Tab to switch fields
 -- Textbox redesign
 -- Multiline Textbox
 -- CPT Code editing (new record & from search)
@@ -12,3 +12,23 @@ December 2017
 -- Simplification of PatientDetail, cptCode and Textbox objects
 ----> removal of unnecessary fluff objects
 -- several utility scripts
+
+
+March 2018
+
+-- Moved DOS From/DOS To out of cpt code and into patient detail
+-- removed date of service (replaced date care from and date care to instead)
+-- NA Bill ID is now available and required prior to settling a case
+
+
+June 2018
+
+-- Data import functionality
+-- Added Import and Import Confirm rooms and buttons
+-- Database versioning added and checkDatabaseConversion script created for future use
+-- created checkValidLoadData script for general safety checks on potential import data
+-- more utility scripts
+-- Documentation
+-- Buttons redesigned to use Object Variables; new button sprite
+-- Created obj_StaticTextDisplay to replace previous error/warning objects
+-- rm_Search and rm_Import use room persistence to maintain state; reset on Room Start

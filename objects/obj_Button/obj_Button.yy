@@ -5,16 +5,6 @@
     "name": "obj_Button",
     "eventList": [
         {
-            "id": "8cc954a1-9ca9-455e-ac08-6bb4207cf4dc",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 0,
-            "m_owner": "5852049a-19e2-467e-81b5-9811864a1811"
-        },
-        {
             "id": "ba8a180a-230a-48eb-929d-67bfbb58f778",
             "modelName": "GMEvent",
             "mvc": "1.0",
@@ -25,17 +15,48 @@
             "m_owner": "5852049a-19e2-467e-81b5-9811864a1811"
         },
         {
-            "id": "fb117d6a-8581-498e-aa05-97c1caa43f49",
+            "id": "31fbc3ed-8606-4f04-8d1c-ab1e105ddd70",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 4,
+            "enumb": 7,
+            "eventtype": 6,
+            "m_owner": "5852049a-19e2-467e-81b5-9811864a1811"
+        },
+        {
+            "id": "94cdf6b5-2320-4c7b-a0cb-4995c39a02af",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 6,
+            "m_owner": "5852049a-19e2-467e-81b5-9811864a1811"
+        },
+        {
+            "id": "bdbb60cb-c4dd-4f18-afd7-64517471e814",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 8,
+            "m_owner": "5852049a-19e2-467e-81b5-9811864a1811"
+        },
+        {
+            "id": "13ea9d78-251c-48b5-9fdb-72634d0f8349",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 56,
             "eventtype": 6,
             "m_owner": "5852049a-19e2-467e-81b5-9811864a1811"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
+    "overriddenProperties": null,
     "parentObjectId": "00000000-0000-0000-0000-000000000000",
     "persistent": false,
     "physicsAngularDamping": 0.1,
@@ -50,7 +71,93 @@
     "physicsShape": 1,
     "physicsShapePoints": null,
     "physicsStartAwake": true,
+    "properties": [
+        {
+            "id": "8f1aca31-d997-4050-accf-ac31a06cf75c",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "Back",
+            "varName": "m_button_label",
+            "varType": 2
+        },
+        {
+            "id": "9e0a83e6-f90c-48ee-bd80-2c690045645d",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "rm_MainMenu",
+            "varName": "m_button_room_dest",
+            "varType": 5
+        },
+        {
+            "id": "ac868f90-ca34-4c07-9d90-f3c0d79524d8",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "gm_state.MainMenu",
+            "varName": "m_button_state_dest",
+            "varType": 4
+        },
+        {
+            "id": "6da8103c-9bb1-459b-9a94-388e7e671dbe",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "20",
+            "varName": "m_button_x_labeloffset",
+            "varType": 1
+        },
+        {
+            "id": "eb3fbaa7-b03e-4282-aecb-075bb20d575c",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "20",
+            "varName": "m_button_y_labeloffset",
+            "varType": 1
+        },
+        {
+            "id": "371843ad-9568-4fe8-b3ef-9e9fdd301a66",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "button_sprite.initial",
+            "varName": "m_button_sprite_state",
+            "varType": 4
+        }
+    ],
     "solid": false,
-    "spriteId": "662da644-8044-4017-bcfe-ac16bb038548",
+    "spriteId": "4c8b5000-adab-4f17-bc57-26dad7d21b40",
     "visible": true
 }

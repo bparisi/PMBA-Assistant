@@ -1,0 +1,36 @@
+The two important data structure objects are cptCode and PatientDetail. A PatientDetail holds all
+of the information of the patient and the bill, as well as an array of cptCodes. 
+
+Textboxes have a number of member variables that should be set specifically for each instance,
+such as the character limit, the input mask, the label, and the font alignment.
+
+Textboxes have m_textbox_state, which can be 0-5. 0-2 are for mandatory fields: 
+0 - unchanged, 1 - valid, 2 - invalid, and 3-5 are the equivalent for optional fields.
+
+When a textbox is selected, on every key press the input is validated and the state of the textbox is changed.
+When one of the save buttons is clicked, validateAll() is run again just in case, and then the state of each 
+textbox is checked and the save_attempt_flag is set to determine whether or not the user can proceed successfully.
+
+There are three important save buttons - save cpt code, save to datagrid, and save edits.
+Save CPT Code merely creates a new obj_cptCode and adds it to the array in the PatientDetail. It does not touch
+the datagrid or the file system at all.
+Save to Datagrid creates a new record in the datagrid for each cpt code that was entered, adding the same 
+PatientDetail info to each cpt code as it does so. It then sets the controller.m_grid_changed flag, and the new
+datagrid is saved to the file system on room create of the Main Menu, which should be immediately thereafter.
+Save Edits, which is only used when editing an existing record from the search results page,
+validates, changes the grid and saves the new grid to the file system all at once.
+
+
+Tabs are handled specially - there is a TabHandler object, and everything that can be selected via the Tab key
+inherits from the TabSelectable object.
+
+
+Searching - mostly it is just a list of integers passed around that represent indices in the datagrid, so that
+a certain row can be called up at any time. Usually this is a ds_list that is being transferred between
+executeSearch (from matching rows), obj_SearchResultsDisplay, drawSearchResults, and createDGRFromIndex.
+As of now (5/25/18) Search simply looks for an exact match or a substring match of the query in every (filled)
+position of thr datagrid.
+
+
+
+

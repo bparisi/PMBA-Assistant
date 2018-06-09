@@ -11,7 +11,7 @@ var matching_rows = ds_list_create();
 
 //search logic
 for (var i = row_ct-1; i > -1; i--) {//outer loop searchs per row, back to front so recent items come up first
-	for (var j = 1; j < COLUMN_COUNT; j++) { //inner loop searches per data piece (not dataid)
+	for (var j = 2; j < COLUMN_COUNT; j++) { //inner loop searches per data piece (not data_id or record_group)
 		if ( string(grid[# i, j]) == text ||
 			 string_pos(text, string(grid[# i, j])) > 0 ) { //if is the string or contains the string
 			

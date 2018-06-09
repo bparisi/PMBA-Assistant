@@ -647,7 +647,7 @@ switch mask {
 		}
 		if (field_complete) return true; else return false;
 		
-	case input_mask.physSig:
+	case input_mask.authSig:
 		for (i = 1; i < len+1; i++) {
 			char = string_char_at(val, i);
 			switch (current_state) {

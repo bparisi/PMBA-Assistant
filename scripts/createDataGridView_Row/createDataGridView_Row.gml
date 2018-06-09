@@ -1,4 +1,4 @@
-///@desc constructor for obj_DataGridView_Row
+///@desc **DEPRECATED - use createDGRFromIndex()** explicit constructor for obj_DataGridView_Row
 ///@param id
 ///@param cpt the cpt code
 ///@param settled true/false has the case been settled
@@ -9,11 +9,10 @@
 ///@param billName name of billing provider of client
 ///@param fromDate date care from
 ///@param toDate date care to
+///@param fedTIN federal Tax ID No.
 ///@param billID NA Bill ID
-///@param dos date of service
 ///@param x
 ///@param y
-///@param index index of row in the datagrid
 
 
 var ident = argument0;
@@ -26,11 +25,10 @@ var last = argument6;
 var provName = argument7;
 var frmDt = argument8;
 var toDt = argument9;
-var billID = argument10;
-var dateofservice = argument11;
+var fedTIN = argument10;
+var billID = argument11;
 var xx = argument12;
 var yy = argument13;
-var index = argument14;
 
 
 var inst_id = instance_create_layer(xx, yy, "Instances", obj_DataGridView_Row);
@@ -47,15 +45,9 @@ with (inst_id) {
 	m_dgr_billName = provName;
 	m_dgr_fromDate = frmDt;
 	m_dgr_toDate = toDt;
+	m_dgr_fedTIN = fedTIN;
 	m_dgr_na_bill_id = billID;
-	m_dgr_dos = dateofservice;
 	
-}
-
-var btn_id = instance_create_layer(xx + 1100, yy + 42, "Instances", obj_EditRecordBtn);
-
-with (btn_id) {
-	m_edit_index = index;
 }
 
 return inst_id;

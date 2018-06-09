@@ -1,3 +1,6 @@
+Bill ID is not saved when entering cpt codes and returning
+
+
 1) new validation objects
 
 2) better optional functionality
@@ -8,16 +11,14 @@
 
 5) add contact list room and state
 
-6) show prior search results on back from edit
+6) make maxpay warning blocking and implement two click confirm optional blocking
 
-7) read whether a record being edited is settled or not, and require or not maxpay, dos, billID
+7) read whether a record being edited is settled or not, and require or not maxpay, fedTIN
 	
 
 commas in address
 clear text field button for quick delete
-copy prev cpt code settings (dates, place, provID)
+copy prev cpt code settings (place, provID)
 shift+tab support?
 textbox cursor / arrow key support
-
-
 

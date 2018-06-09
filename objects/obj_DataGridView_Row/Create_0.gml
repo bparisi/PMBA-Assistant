@@ -13,4 +13,4 @@ m_dgr_billName = -404;
 m_dgr_fromDate = -404;
 m_dgr_toDate = -404;
 m_dgr_na_bill_id = -404;
-m_dgr_dos = -404;
+m_dgr_fedTIN = -404;

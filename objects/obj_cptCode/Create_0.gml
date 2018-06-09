@@ -2,8 +2,6 @@
 
 m_cpt_code = -404;
 m_cpt_charge = -404;
-m_cpt_fromDate = -404;
-m_cpt_toDate = -404;
 
 //optional fields
 m_cpt_modifiers = "";

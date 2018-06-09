@@ -30,4 +30,9 @@ draw_text(x + 30, y + 66, m_dgr_billName);
 draw_set_halign(fa_center);
 draw_text(x + 780, y + 34, m_dgr_fromDate);
 draw_text(x + 780, y + 62, m_dgr_toDate);
-draw_text(x + 958, y + 42, m_dgr_dos);
+
+//fedTIN
+draw_text(x + 958, y + 42, m_dgr_fedTIN);
+
+//bill ID
+draw_text(x + 1100, y + 42, m_dgr_na_bill_id);
