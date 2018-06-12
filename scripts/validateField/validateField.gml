@@ -112,74 +112,67 @@ switch mask {
 			char = string_char_at(val, i);
 			switch (current_state) {
 				case ps.one:
-					if (isNumeric(char)) {
+					if (isAlphaNum(char)) continue;
+					else if (char == " ") {
 						current_state = ps.two;
 						continue;
 					}
 					else return false;
 					break;
 				case ps.two:
-					if (isAlphaNum(char)) continue;
-					else if (char == " ") {
+					if (isAlphaNum(char)) {
 						current_state = ps.three;
 						continue;
 					}
 					else return false;
 					break;
 				case ps.three:
-					if (isAlphaNum(char)) {
+					if (isAlphaNum(char)) continue;
+					else if (char == " ") {
+						current_state = ps.two;
+						continue;
+					}
+					else if (char == ",") {
 						current_state = ps.four;
 						continue;
 					}
 					else return false;
 					break;
 				case ps.four:
-					if (isAlphaNum(char)) continue;
-					else if (char == " ") {
-						current_state = ps.three;
-						continue;
-					}
-					else if (char == ",") {
+					if (char == " ") {
 						current_state = ps.five;
 						continue;
 					}
 					else return false;
 					break;
 				case ps.five:
-					if (char == " ") {
+					if (isAlphabetic(char)) {
 						current_state = ps.six;
 						continue;
 					}
 					else return false;
 					break;
 				case ps.six:
-					if (isAlphabetic(char)) {
+					if (isAlphabetic(char)) continue;
+					else if (char == " ") {
+						current_state = ps.five;
+						continue;
+					}
+					else if (char == ",") {
 						current_state = ps.seven;
 						continue;
 					}
 					else return false;
 					break;
 				case ps.seven:
-					if (isAlphabetic(char)) continue;
-					else if (char == " ") {
-						current_state = ps.six;
-						continue;
-					}
-					else if (char == ",") {
-						current_state = ps.eight;
-						continue;
-					}
-					else return false;
-					break;
-				case ps.eight:
 					if (char == " ") {
-						current_state = ps.nine;
+						current_state = ps.eight;
 						count = 0;
 						continue;
 					}
 					else return false;
 					break;
-				case ps.nine:
+				case ps.eight:
 					if (count < 2) {
 						if (isAlphabetic(char)) {
 							count += 1;
@@ -189,7 +182,7 @@ switch mask {
 					}
 					else if (count == 2) {
 						if (char == " ") {
-							current_state = ps.ten;
+							current_state = ps.nine;
 							count = 0;
 							continue;
 						}
@@ -197,7 +190,7 @@ switch mask {
 					}
 					else return false; //should not be reached
 					break;
-				case ps.ten:
+				case ps.nine:
 					if (count < 5) {
 						if (isNumeric(char)) {
 							count += 1;
@@ -208,7 +201,7 @@ switch mask {
 					}
 					else if (count == 5) { //...unless it keeps going
 						if (char == "-") {
-							current_state = ps.eleven;
+							current_state = ps.ten;
 							field_complete = false;
 							count = 0;
 							continue;
@@ -217,7 +210,7 @@ switch mask {
 					}
 					else return false; //should not be reached
 					break;
-				case ps.eleven:
+				case ps.ten:
 					if (count < 4) {
 						if (isNumeric(char)) {
 							count += 1;
@@ -466,7 +459,16 @@ switch mask {
 			char = string_char_at(val, i);
 			switch (current_state) {
 				case ps.one:
-					if (count < 5) {
+					if (count < 3) {
+						if (isAlphaNum(char)) {
+							count += 1;
+							if (count == 3) field_complete = true;
+							continue;
+						}
+						else return false;
+					}
+					else if (count < 5) {
+						field_complete = false;
 						if (isAlphaNum(char)) {
 							count += 1;
 							if (count == 5) field_complete = true;
@@ -706,10 +708,17 @@ switch mask {
 			char = string_char_at(val, i);
 			switch (current_state) {
 				case ps.one:
-					if (count < 7) {
+					if (isNumeric(char) or char == "P") {
+						current_state = ps.two;
+						continue;
+					}
+					else return false;
+					break;
+				case ps.two:
+					if (count < 6) {
 						if (isNumeric(char)) {
 							count += 1;
-							if (count == 7) field_complete = true;
+							if (count == 6) field_complete = true;
 							continue;
 						}
 						else return false;

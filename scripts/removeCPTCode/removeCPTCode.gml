@@ -29,6 +29,4 @@ with (pd) {
 	
 }
 
-with (obj_DeleteCPTBtn) instance_destroy();
-with (obj_AddNewCPTBtn) instance_destroy();
 drawCPTCodes(pd);

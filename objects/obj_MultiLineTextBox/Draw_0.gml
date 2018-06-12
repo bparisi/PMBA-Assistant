@@ -21,4 +21,4 @@ else
 draw_set_color(c_white);
 draw_set_font(font_TextboxLabel);
 draw_set_halign(fa_left);
-draw_text( x + 8, y - 20, string(m_textbox_label));
+draw_text( x + 8, y + 166, string(m_textbox_label));

@@ -1,5 +1,11 @@
 /// @description initialize variables
 
+enum ntype {
+	first_time, appeal, claims	
+}
+
+m_pd_negtype = ntype.first_time;
+
 m_pd_cptcode_array[5] = 0;
 m_pd_cptcode_count = 0;
 

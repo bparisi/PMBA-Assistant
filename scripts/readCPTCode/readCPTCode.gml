@@ -7,6 +7,9 @@
 var cpt = argument0;
 var settled = argument1;
 
+var negtype;
+with (obj_PatientDetail) negtype = m_pd_negtype;
+
 with (cpt) {
 	if (settled) { //only the instance names differ, plus the maxpay extra. in rm_CPTCodeEntrySettled
 		m_cpt_code = (inst_textbox_cptCode2).m_textbox_text;
@@ -16,6 +19,8 @@ with (cpt) {
 		m_cpt_placeCode = (inst_textbox_placeCode2).m_textbox_text;
 		m_cpt_provID = (inst_textbox_provID2).m_textbox_text;
 		m_cpt_max_payment = (inst_textbox_maxpay).m_textbox_text;
+		if (negtype == ntype.appeal) m_cpt_orig_payment = (inst_textbox_origpay2).m_textbox_text;
+		else m_cpt_orig_payment = "N/A";
 	}
 	else { //not settled, in rm_CPTCodeEntry
 		m_cpt_code = (inst_textbox_cptCode).m_textbox_text;
@@ -24,5 +29,7 @@ with (cpt) {
 		m_cpt_units = (inst_textbox_units).m_textbox_text;
 		m_cpt_placeCode = (inst_textbox_placeCode).m_textbox_text;
 		m_cpt_provID = (inst_textbox_provID).m_textbox_text;
+		if (negtype == ntype.appeal) m_cpt_orig_payment = (inst_textbox_origpay).m_textbox_text;
+		else m_cpt_orig_payment = "N/A";
 	}
 }

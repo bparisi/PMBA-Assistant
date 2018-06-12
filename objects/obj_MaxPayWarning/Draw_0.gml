@@ -11,7 +11,7 @@ if (m_mpwarning_hover) {
 	draw_set_halign(fa_left); //set text alignment
 	draw_set_color(c_white); //set text color
 	draw_text_ext(mouse_x + 20, mouse_y + 20, 
-	"This CPT Code has been marked as settled but the Client's Maximum Payment was never specified.", 
+	"The negotiation has been marked as an appeal, but the original payment for this CPT Code was never specified.", 
 					32, 260);
 	
 }

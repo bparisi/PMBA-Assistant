@@ -1,6 +1,6 @@
 /// @description open file dialog
 
-if (visible) { //don't process events if we've hidden the button (in rm_ImportConfirm)
+if (visible and m_button_click_capture) { //don't process events if we've hidden the button (in rm_ImportConfirm)
 	
 	var filename = get_open_filename("PMBA Vital Data File (.pvd)|*.pvd", "");
 
@@ -68,9 +68,12 @@ if (visible) { //don't process events if we've hidden the button (in rm_ImportCo
 		
 		var inst_id = instance_create_layer(600, 400, "Instances", obj_StaticTextDisplay);
 		with (inst_id) {
-			//TODO: change sprite
-			sprite_index = spr_Invalid;
-			m_statictext_text = "Cannot import this file: the data it contains has unexpected structure and will not be read correctly.";
+			sprite_index = spr_Invalid_Large;
+			m_statictext_text = "Cannot import this file: the data it contains has unexpected structure and it will not be read correctly.";
+			m_statictext_linewidth = 380;
+			m_statictext_xoffset = 42
+			m_statictext_yoffset = 30;
+
 		}
 	}
 

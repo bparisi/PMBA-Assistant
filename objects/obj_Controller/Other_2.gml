@@ -28,7 +28,7 @@ if (file_exists(SAVE_FILE_NAME)) {
 }
 else { //no save data found
 
-	m_ds_datagrid = ds_grid_create(5, COLUMN_COUNT);
+	m_ds_datagrid = ds_grid_create(10000, COLUMN_COUNT);
 	//initialized to all zeroes
 
 	m_ds_metadata = ds_grid_create(1, META_ENUM_SIZE);

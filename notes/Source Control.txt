@@ -32,3 +32,18 @@ June 2018
 -- Buttons redesigned to use Object Variables; new button sprite
 -- Created obj_StaticTextDisplay to replace previous error/warning objects
 -- rm_Search and rm_Import use room persistence to maintain state; reset on Room Start
+_______
+-- added three fields to database: negotiation type (negtype), original payment, and date of entry
+----> There is now a selector for each record if it is a First-Time, Claims, or Appeal negotiation
+-- created scripts readCPTCode and readPatientDetails to keep reading textbox contents DRY
+-- removed settled/not settled link in favor of main menu buttons for settled or not
+-- created obj_XSelect (exclusive select), essentially a checkbox system, for negtypes
+-- added some new fonts (different size of existing fonts)
+-- obj_cptCodes now display maxpay for settled cases
+-- added validation hint text & show/hide buttons and other explanatory GUI text
+-- touched up error sprites
+-- created spr_Invis as an anchor for StaticTextDisplays that don't use sprites
+-- changes to validation of some fields -- notably Address (for PO Boxes) and Bill ID
+-- created rm_ReadMe
+-- created obj_CopyCPTBtn for copying cpt code optional fields
+-- redid UI and tab order to more closely match the forms where the data originates

@@ -2,7 +2,8 @@
 var pd_index;
 
 if not (instance_exists(obj_PatientDetail)) {
-	pd_index = instance_create_layer(420,420,"Instances", obj_PatientDetail);	
+	pd_index = instance_create_layer(420,420,"Instances", obj_PatientDetail);
+	pd_index.m_pd_negtype = ntype.first_time;
 }
 else {
 	with (obj_PatientDetail) {
@@ -16,8 +17,14 @@ else {
 		(inst_textbox_authSig).m_textbox_text = m_pd_auth_sig;
 		(inst_textbox_fedTIN).m_textbox_text = m_pd_fedTIN;
 		(inst_textbox_naBillID).m_textbox_text = m_pd_na_bill_id;
-		
 		pd_index = id;
+	}
+}
+
+with (pd_index) {
+	with (obj_XSelect) {
+		if (m_xselect_select_id == other.m_pd_negtype) m_xselect_selected = true;
+		else m_xselect_selected = false;
 	}
 }
 
@@ -37,3 +44,7 @@ if (controller.validate) {
 	validateAll();
 	controller.validate = false;
 }
+
+with (obj_StaticTextDisplay) visible = false;
+inst_alwaysShow.visible = true;
+inst_alwaysShowDOSHint.visible = true;

@@ -16,3 +16,6 @@ m_cpt_selected_for_edit = false;
 m_cpt_settled = true; //default can be true bc value is not read if the code is not settled
 m_cpt_max_payment = -404;
 
+//appeals case vars
+m_cpt_orig_payment = "N/A";
+

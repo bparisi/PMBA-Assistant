@@ -1,1 +1,1 @@
-sprite_index = spr_Invalid_Optional;
+sprite_index = spr_Invalid_Optional_Large;

@@ -1,24 +1,41 @@
-Bill ID is not saved when entering cpt codes and returning
+
+0) ReadMe Room
+--> user workflow to take not of that is easily changeable
+----->(tab order, field position, repetitive tasks, stupid validations)
+
+0) PMBA Bill ID Counter
+
+0) new icon for .exe
 
 
-1) new validation objects
+0) Search Filters
 
-2) better optional functionality
+1) read whether a record being edited is settled or not, and require or not maxpay, fedTIN
+--> related: if you edit a search result, the room persistence does not update that item on return
 
-3) add ability to delete records from search results
+2) new validation objects
 
-4) add explanatory GUI text
+3) better optional functionality
+
+4) add ability to delete records from search results
 
 5) add contact list room and state
 
-6) make maxpay warning blocking and implement two click confirm optional blocking
+6) Textbox Object Variables pass
 
-7) read whether a record being edited is settled or not, and require or not maxpay, fedTIN
-	
+7) summary of potential import data
 
-commas in address
+double check save to Datagrid save_attempt_flag logic
+
+address issue with mouse down/released clicking buttons when the click didn't start on the button
+see -> clicking the edit button on the bottom-most record of search also immediately clicks the
+save edits buttons, which is created right under the cursor in the next room.
+
+Refresh two-click optional bypass on any optional field change?
+
+
+
 clear text field button for quick delete
-copy prev cpt code settings (place, provID)
 shift+tab support?
 textbox cursor / arrow key support
 

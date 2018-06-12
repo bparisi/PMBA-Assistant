@@ -5,3 +5,4 @@ enum button_sprite {
 }
 
 m_button_sprite_state = button_sprite.pressed;
+m_button_click_capture = true;

@@ -1,34 +1,35 @@
 /// @description 
 
-//Input Validation
-var save_attempt_flag = 1;
-validateAll();
-with (obj_Textbox) {
-	if (m_textbox_state == 2) save_attempt_flag = 0;
-	else if (m_textbox_state == 5 and save_attempt_flag != 0) save_attempt_flag = 2;
+if (m_button_click_capture) {
+		
+	//Input Validation
+	var save_attempt_flag = 1; //0 - required invalid, 1 - valid, 2 - optional invalid
 	
-}
-
-//Initialize Error/Warning Popup
-var popup;
-if (instance_exists(obj_StaticTextDisplay)) {
-	with (obj_StaticTextDisplay) popup = id;
-}
-else popup = instance_create_layer(610, 800, "Tooltips", obj_StaticTextDisplay);
-
-with (popup) {
-	sprite_index = spr_Invalid;
-	m_statictext_text = "At least one CPT Code must be added";	
-	visible = false;
-}
-
-
-//save new data or display errors
-if (save_attempt_flag == 1) { //valid
-	popup.visible = false; //doesn't really matter bc we go to the next room, but eh
-	
-	//this is where data is actually copied to be preserved
 	if (instance_exists(obj_cptCode)) {
+		validateAll();
+		with (obj_Textbox) {
+			//if any required are invalid, state 0
+			if (m_textbox_state == 2) save_attempt_flag = 0;
+			//otherwise, if an optional is invalid and we haven't had a required invalid yet, state 2
+			else if (m_textbox_state == 5 and save_attempt_flag != 0) save_attempt_flag = 2;
+		}
+		if (instance_exists(obj_AppealWarning)) save_attempt_flag = 3; //3 - AppealWarning
+		if (save_attempt_flag == 2 and m_optional_flag) {
+			save_attempt_flag = 1; //second click-thru of optional and got optional again
+		}
+	}
+	else {
+		save_attempt_flag = 4; //4 - no cpt codes
+	}
+
+	
+
+
+	//save new data or display errors
+	if (save_attempt_flag == 1) { //valid
+		m_popup.visible = false; //doesn't really matter bc we go to the next room, but eh
+	
+		//this is where data is actually copied to be preserved
 
 		var patient_detail_id, new_record_array, new_record_count;
 		with (obj_PatientDetail) {
@@ -36,30 +37,10 @@ if (save_attempt_flag == 1) { //valid
 			new_record_count = m_pd_cptcode_count;
 			new_record_array = m_pd_cptcode_array;
 			if (controller.game_state == gm_state.NewRecord) {
-				m_pd_firstName = (inst_textbox_firstName).m_textbox_text;
-				m_pd_lastName = (inst_textbox_lastName).m_textbox_text;
-				m_pd_billing_name = (inst_textbox_provName).m_textbox_text;
-				m_pd_dos_from = (inst_textbox_fromDate).m_textbox_text;
-				m_pd_dos_to = (inst_textbox_toDate).m_textbox_text;
-				m_pd_bill_addr = (inst_textbox_billAddr).m_textbox_text;
-				m_pd_bill_phone = (inst_textbox_billPhone).m_textbox_text;
-				m_pd_fedTIN = (inst_textbox_fedTIN).m_textbox_text;
-				m_pd_auth_sig = (inst_textbox_authSig).m_textbox_text;
-				m_pd_na_bill_id = (inst_textbox_naBillID).m_textbox_text;
+				readPatientDetails(id, false);
 			}
 			else if (controller.game_state == gm_state.NewRecordSettled) {
-				m_pd_firstName = (inst_textbox_firstName2).m_textbox_text;
-				m_pd_lastName = (inst_textbox_lastName2).m_textbox_text;
-				m_pd_billing_name = (inst_textbox_provName2).m_textbox_text;
-				m_pd_dos_from = (inst_textbox_fromDate2).m_textbox_text;
-				m_pd_dos_to = (inst_textbox_toDate2).m_textbox_text;
-				m_pd_bill_addr = (inst_textbox_billAddr2).m_textbox_text;
-				m_pd_bill_phone = (inst_textbox_billPhone2).m_textbox_text;
-				m_pd_fedTIN = (inst_textbox_fedTIN2).m_textbox_text;
-				m_pd_auth_sig = (inst_textbox_authSig2).m_textbox_text;
-				m_pd_dateofloss = (inst_textbox_dol).m_textbox_text;
-				m_pd_na_bill_id = (inst_textbox_naBillID2).m_textbox_text;
-				m_pd_na_case_id = (inst_textbox_naCaseID).m_textbox_text;
+				readPatientDetails(id, true);
 			}
 		
 		}
@@ -99,11 +80,15 @@ if (save_attempt_flag == 1) { //valid
 				ds_grid_set(grid, row, dgc.bill_phone, m_pd_bill_phone);
 				ds_grid_set(grid, row, dgc.fedTIN, m_pd_fedTIN);
 				ds_grid_set(grid, row, dgc.auth_sig, m_pd_auth_sig);
+				
+				//negotiation type
+				ds_grid_set(grid, row, dgc.neg_type, m_pd_negtype);
 			}
 
 			with (cpt_code) {	
 				ds_grid_set(grid, row, dgc.cpt_code, m_cpt_code);
 				ds_grid_set(grid, row, dgc.charge, m_cpt_charge);
+				ds_grid_set(grid, row, dgc.original_payment, m_cpt_orig_payment);
 			
 				if (state == gm_state.NewRecordSettled) {
 					ds_grid_set(grid, row, dgc.settled, true);
@@ -121,6 +106,15 @@ if (save_attempt_flag == 1) { //valid
 				ds_grid_set(grid, row, dgc.prov_id, m_cpt_provID);
 			}
 		
+			//date of entry
+			//create ds_list to store times of future edits
+			var timelist = ds_list_create();
+			var now = date_datetime_string(date_current_datetime());
+			ds_list_add(timelist, now);
+			var listString = ds_list_write(timelist);
+			//write the string that can reconstruct the ds_list to the main datagrid
+			ds_grid_set(grid, row, dgc.date_of_entry, listString);
+			ds_list_destroy(timelist);
 
 			//increment metadata and decrement index
 			ds_grid_set(controller.m_ds_metadata, 0, meta.row_count, row+1);
@@ -139,26 +133,42 @@ if (save_attempt_flag == 1) { //valid
 	
 		changeGameState( m_button_state_dest, m_button_room_dest);
 	}
-	else { //no cpt codes
-		popup.visible = true; //display error
-	}
+	else { //not valid for some reason
+		m_popup.visible = true;
 	
-}
-else if (save_attempt_flag == 0) { //some required are invalid
-	
-	with (popup) {
-		visible = true;
-		m_statictext_text = "Some required fields do not have valid formatting";
-	}
-	
-}
-else { //save_attempt_flag == 2, some optional are invalid
+		if (save_attempt_flag == 0) { //some required are invalid
+			m_optional_flag = false;
+			with (m_popup) {
+				sprite_index = spr_Invalid;
+				m_statictext_text = "Some required fields do not have valid formatting";
+			}
+		}
+		else if (save_attempt_flag == 2) { //some optional are invalid
+			m_optional_flag = true;
+			with (m_popup) {
+				sprite_index = spr_Invalid_Optional;
+				m_statictext_text = "Some optional fields do not look right, but they will still be saved as is if you click again";
+				m_statictext_linewidth = 190;
+			}
+		}
+		else if (save_attempt_flag == 3) {
+			m_optional_flag = false;
+			with (m_popup) {
+				sprite_index = spr_Invalid;
+				m_statictext_text = "Address the issue(s) with CPT Codes";
+			}
+		}
+		else if (save_attempt_flag == 4) {
+			m_optional_flag = false;
+			with (m_popup) {
+				sprite_index = spr_Invalid;
+				m_statictext_text = "At least one CPT Code must be added";
+			}
+		}
 
-	with (popup) {
-		visible = true;
-		sprite_index = spr_Invalid_Optional;
-		m_statictext_text = "Some optional fields do not look right, but they will still be saved as is if you click again";
-		m_statictext_linewidth = 190;
 	}
-	
+
 }
+
+
+

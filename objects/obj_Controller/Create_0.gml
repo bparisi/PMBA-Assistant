@@ -6,7 +6,7 @@ enum gm_state {
 	CPTEntry_New, CPTEntry_NewSettled, //from clicking AddNewCPTBtn
 	CPTEntry_Edit, CPTEntry_EditSettled, //from clicking existing cptCode during new record entry
 	EditRecord, //from clicking Edit button in search results
-	Import, Import_Confirm
+	Import, Import_Confirm, Help
 }
 
 
@@ -18,9 +18,8 @@ enum gm_state {
 //			 be corrupted as soon as their new mixed-up content was saved under the 'new' version.
 
 enum dgc { //data_grid_column
-	data_id, record_grouping,
-	cpt_code, settled,
-	charge, max_payment,
+	data_id, record_grouping, settled,
+	cpt_code, charge, max_payment,
 	first_name, last_name,
 	bill_name, 
 	dos_from, dos_to, //dos = date of service (date of care)
@@ -32,10 +31,11 @@ enum dgc { //data_grid_column
 	place_code, prov_id,
 	bill_address, bill_phone,
 	auth_sig,
-	na_case_id
+	original_payment,		//only applies to appeal; N/A otherwise
+	na_case_id, neg_type,	//neg_type = first-time, appeal, claims petition
+	date_of_entry			//when the record was entered into the program
 }
-#macro COLUMN_COUNT 22
-#macro SUMMARY_COUNT 12 //the number of columns shown before clicking more details
+#macro COLUMN_COUNT 25
 
 
 

@@ -21,11 +21,20 @@ inst_textbox_provID3.m_textbox_text = ds_grid_get(controller.m_ds_datagrid, inde
 inst_textbox_dol3.m_textbox_text = ds_grid_get(controller.m_ds_datagrid, index, dgc.date_of_loss);
 inst_textbox_billID3.m_textbox_text = ds_grid_get(controller.m_ds_datagrid, index, dgc.na_bill_id);
 inst_textbox_caseID3.m_textbox_text = ds_grid_get(controller.m_ds_datagrid, index, dgc.na_case_id);
+inst_textbox_origpay3.m_textbox_text = ds_grid_get(controller.m_ds_datagrid, index, dgc.original_payment);
 
+var negtype = ds_grid_get(controller.m_ds_datagrid, index, dgc.neg_type);
+
+with (obj_XSelect) {
+	if (m_xselect_select_id == negtype) m_xselect_selected = true;
+	else m_xselect_selected = false;
+}
+
+if (negtype == ntype.appeal) inst_textbox_origpay3.m_textbox_state = 0;
 
 with (obj_TabHandler) {
 	m_tab_current = -1;
-	m_tab_room_max_tabs = 19;
+	m_tab_room_max_tabs = 20;
 }
 
 validateAll();

@@ -53,6 +53,16 @@
             "enumb": 56,
             "eventtype": 6,
             "m_owner": "5852049a-19e2-467e-81b5-9811864a1811"
+        },
+        {
+            "id": "825d4f63-4c5f-4122-9f98-ce07b01e392a",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "5852049a-19e2-467e-81b5-9811864a1811"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -83,7 +93,7 @@
             "rangeMin": 0,
             "resourceFilter": 1023,
             "value": "Back",
-            "varName": "m_button_label",
+            "varName": "m_button_label_text",
             "varType": 2
         },
         {
@@ -141,6 +151,20 @@
             "value": "20",
             "varName": "m_button_y_labeloffset",
             "varType": 1
+        },
+        {
+            "id": "40b415d5-4d7b-4a02-82bf-db3fb24ea06c",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "font_ButtonLabel",
+            "varName": "m_button_label_font",
+            "varType": 5
         },
         {
             "id": "371843ad-9568-4fe8-b3ef-9e9fdd301a66",
